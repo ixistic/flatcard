@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootflat.css">
+       <!--  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Ubuntu:300'> -->
+
+        <title>Japanese Flashcards</title>
+    </head>
+
+    <style type="text/css">
+        body { 
+            /*background: #EEEEEE; */
+            background: #ecf0f1; 
+        }
+        .head {
+            padding: 30px;
+            text-align: center;
+            margin-top: 70px;
+        }
+        .button-go {
+            display: block;
+            width: 96px;
+            height: 96px;
+            margin: auto;
+            border-radius: 48px;
+            color: #fff;
+            background-color: #484848;
+            /*background-color: #FFB61E;*/
+            text-align: center;
+            cursor: pointer;
+        }
+        .button-go:hover { 
+            background-color: #757D75;
+        }
+        .button-go > .text {
+            display: block;
+            margin-top: 24px;
+            padding-top: 24px;
+            font-size: 36px;
+        }
+        .button-ans {
+            display: block;
+            width: 96px;
+            height: 96px;
+            margin: auto;
+            border-radius: 48px;
+            color: #fff;
+            background-color: #484848;
+            /*background-color: #FFB61E;*/
+            text-align: center;
+            cursor: pointer;
+        }
+        .question-box {
+            border-radius: 10px;
+            border: 3px solid #ecf0f1;
+            height: 200px;
+            text-align: left;
+            padding-left: 30px;
+            margin-top: 1px;
+            line-height: 100px;
+            background-color: #2fa084;
+            color: #FFFFFF;
+        }
+        .answer-box {
+            border-radius: 10px;
+            border: 3px solid #ecf0f1;
+            height: 100px;
+            text-align: left;
+            padding-left: 30px;
+            margin-top: 10px;
+            line-height: 100px;
+            background-color: #48cfad;
+            color: #FFFFFF;
+            display: none;
+        }
+    </style>
+
+
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #484848">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="margin-left: 50px;color: #EEEEEE" href="#">By iXisTiC</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="http://www3.nhk.or.jp/lesson/thai/hiragana_thai.pdf" target="_blank">Alphabet-Hiragana</a></li>
+                    <li><a href="http://www3.nhk.or.jp/lesson/thai/katakana_thai.pdf" target="_blank">Alphabet-Katakana</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="">Sign in</a></li>
+                  <li><a href="">Register</a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+
+        <div class="row">
+            <div class="col-md-6">
+          
+                <section id="head" class="head">
+                    <img src="http://muza-chan.net/japan/skins/root22desktop/i/washinomiya-gate.png">
+                    <h1>Japanese Flashcards</h1>
+                    <h3>はじめまして</h3>
+                </section>
+
+                <section id="change-lang">
+                    <div class="row" style="text-align: center;">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-info">
+                                <input type="radio" name="lang" value="thai">Thai-Japan
+                            </label>
+                            <label class="btn btn-info">
+                                <input type="radio" name="lang" value="japan">Japan-Thai
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="go">
+                    <div id="button-go" class="button-go" ><a class="text" href="#answer"style="color: #FFFFFF">สุ่ม!</a></div>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section id="answer" style="padding: 30px">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12" style="margin-top:100px">
+                            <!-- <input type="button" class="btn btn-info" value="New Word!" style="margin-top: 100px;"> -->
+                            <div id="question-box" class="question-box">
+                                <h1>คันจิ : 会う</h1>
+                                <h1>คำอ่าน : あう</h1>
+                            </div>
+                            <div id="answer-box" class="answer-box">
+                                <h2>ความหมาย : พบ,เจอ</h2>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <script src="js/jquery-1.10.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Bootflat's JS files.-->
+        <script src="js/icheck.min.js"></script>
+        <script src="js/jquery.fs.selecter.min.js"></script>
+        <script src="js/jquery.fs.stepper.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#question-box").click(function(e){
+                    e.preventDefault();
+                    $("#answer-box").fadeToggle("slow");
+                });
+
+                $('a[href*=#]:not([href=#])').click(function() {
+                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                      var target = $(this.hash);
+                      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                      if (target.length) {
+                        $('html,body').animate({
+                          scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                      }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
